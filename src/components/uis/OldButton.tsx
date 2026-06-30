@@ -1,5 +1,6 @@
+/*
 import style from "./Button.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface IButtonProps {
   color?: "tomato" | "skyblue" | "green";
@@ -21,29 +22,16 @@ const Button = ({
     console.log("Bouton cliqué, state à true");
 
     onCliked();
-  };
 
-  useEffect(() => {
-    if (!isClicked) {
-      return;
-    }
-
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setIsClicked(false);
       console.log("Rollback, state à false");
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [isClicked]);
+    }, 2000);
+  };
 
   return (
     <button
-      className={
-      style.Button +
-      (isClicked ? style.clicked : "")
-      }
+      className={style.Button + " DarkBackground"}
       style={{ color }}
       onClick={handleClick}
       type={type}
@@ -54,3 +42,4 @@ const Button = ({
 };
 
 export default Button;
+*/
