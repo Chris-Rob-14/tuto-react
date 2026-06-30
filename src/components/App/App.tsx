@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
-import Button from "../uis/Button/Button";
+import Header from "../ui/Header/Header";
+import Footer from "../ui/Footer/Footer";
+import Navbar from "../ui/Navbar/Navbar";
+import MemeForm from "../MemeForm/MemeForm"
+import FlexH1Grow from "../layout/FlexH1Grow/FlexH1Grow";
+import FlexV3Grow from "../layout/FlexV3Grow/FlexV3Grow";
 
-const App:React.FC = (props) => {
+const App:React.FC = () => {
   const [counter, setCounter] = useState(0)
   useEffect(() => {
     console.log(counter)
@@ -10,29 +15,12 @@ useEffect(() => {
   setCounter(-1000)
 }, [])
   return (
-    <>
-      <p>counter: {counter}</p>
-      <Button
-        color="green"
-        onCliked={() => {
-          setCounter(counter-1);
-          console.log(counter);
-        }}
-      >
-        <img src="favicon.svg" alt="" />
-        -1
-      </Button>
-      <Button
-        onCliked={() => {
-          setCounter(counter+1);
-          console.log(counter);
-        }}
-        color="green"
-      >
-        <img src="favicon.svg" alt="" />
-        +1
-      </Button>
-    </>
+ <FlexV3Grow>
+  <Header />
+    <Navbar />
+    <FlexH1Grow><div>Viewer</div><MemeForm /></FlexH1Grow>
+    <Footer />
+ </FlexV3Grow>
   );
 };
 
