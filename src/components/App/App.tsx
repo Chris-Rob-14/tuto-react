@@ -1,28 +1,25 @@
-import { useEffect, useState } from "react";
 import Header from "../ui/Header/Header";
 import Footer from "../ui/Footer/Footer";
 import Navbar from "../ui/Navbar/Navbar";
-import MemeForm from "../MemeForm/MemeForm"
 import FlexH1Grow from "../layout/FlexH1Grow/FlexH1Grow";
 import FlexV3Grow from "../layout/FlexV3Grow/FlexV3Grow";
+import MemeSVGViewer from "../ui/MemeSVGViewer/MemeSVGViewer";
+import MemeFormConnected from "../MemeForm/MemeForm.stored";
+import Editor from "../../page/Editor";
+import { Routes, Route } from "react-router";
 
-const App:React.FC = () => {
-  const [counter, setCounter] = useState(0)
-  useEffect(() => {
-    console.log(counter)
-},[counter])
-useEffect(() => {
-  setCounter(-1000)
-}, [])
+const App: React.FC = () => {
   return (
- <FlexV3Grow>
-  <Header />
-    <Navbar />
-    <FlexH1Grow><div>Viewer</div><MemeForm /></FlexH1Grow>
-    <Footer />
- </FlexV3Grow>
+    <FlexV3Grow>
+      <Header />
+      <Navbar />
+      <Routes>
+        <Route path="/editor" Component={Editor} />
+        <Route path="/editor/:id" Component={Editor} />
+      </Routes>
+      <Footer />
+    </FlexV3Grow>
   );
 };
 
 export default App;
-
