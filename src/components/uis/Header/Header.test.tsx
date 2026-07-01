@@ -1,15 +1,14 @@
 import { describe, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import MemeForm from './MemeForm';
+import Header from './Header';
 
-describe('<MemeForm />', () => {
+describe('<Header />', () => {
   test('should mount', () => {
-    render(<MemeForm />);
+    render(<Header />);
 
-    const memeForm = screen.getByTestId('MemeForm');
+    const header = screen.getByTestId('Header');
 
-    expect(memeForm).toBeInTheDocument();
+    expect(header).toBeInTheDocument();
   });
 });
- 

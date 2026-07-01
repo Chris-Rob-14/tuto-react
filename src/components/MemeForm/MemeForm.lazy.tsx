@@ -1,11 +1,11 @@
 import { lazy, Suspense, ComponentProps } from 'react';
 
-const LazymemeForm = lazy(() => import('./MemeForm'));
+const LazyMemeForm = lazy(() => import('./MemeForm'));
 
-const memeForm = (props: ComponentProps<typeof LazymemeForm>) => (
+const MemeForm = (props: ComponentProps<typeof LazyMemeForm>) => (
   <Suspense fallback={null}>
-    <LazymemeForm {...props} />
+    <LazyMemeForm {...props} />
   </Suspense>
 );
 
-export default memeForm;
+export default MemeForm;

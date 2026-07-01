@@ -1,15 +1,14 @@
 import { describe, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import MemeForm from './MemeForm';
+import Modal from './Modal';
 
-describe('<MemeForm />', () => {
+describe('<Modal />', () => {
   test('should mount', () => {
-    render(<MemeForm />);
+    render(<Modal />);
 
-    const memeForm = screen.getByTestId('MemeForm');
+    const modal = screen.getByTestId('Modal');
 
-    expect(memeForm).toBeInTheDocument();
+    expect(modal).toBeInTheDocument();
   });
 });
- 

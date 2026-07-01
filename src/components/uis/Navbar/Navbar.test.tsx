@@ -1,15 +1,14 @@
 import { describe, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
-import MemeForm from './MemeForm';
+import Navbar from './Navbar';
 
-describe('<MemeForm />', () => {
+describe('<Navbar />', () => {
   test('should mount', () => {
-    render(<MemeForm />);
+    render(<Navbar />);
 
-    const memeForm = screen.getByTestId('MemeForm');
+    const navbar = screen.getByTestId('Navbar');
 
-    expect(memeForm).toBeInTheDocument();
+    expect(navbar).toBeInTheDocument();
   });
 });
- 

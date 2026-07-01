@@ -1,28 +1,21 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { emptyMeme, type MemeInterface } from "orsys-tjs-meme";
 
-interface CurrentState {
-  meme: MemeInterface;
-}
+const initialState: { meme: MemeInterface } = { meme: emptyMeme };
 
-const initialState: CurrentState = {
-  meme: emptyMeme,
-};
-
-const currentSlice = createSlice({
+const current = createSlice({
   name: "current",
   initialState,
   reducers: {
-    clear: (state) => {
-      state.meme = emptyMeme;
-    },
-
-    update: (state, action: PayloadAction<MemeInterface>) => {
+    update: (state, action: { type: string; payload: MemeInterface }) => {
       state.meme = action.payload;
+    },
+    clear: (s) => {
+      s.meme = emptyMeme;
     },
   },
 });
 
-export const { clear, update } = currentSlice.actions;
+export const { clear, update } = current.actions;
 
-export default currentSlice.reducer;
+export default current.reducer;

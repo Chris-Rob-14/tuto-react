@@ -1,23 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../../store/store";
-import { update } from "../../store/slices/current";
+import type { AppDispatch, RootState } from "../../store/store";
 import MemeFormU from "./MemeForm";
+import { update } from "../../store/slices/current";
 
-const MemeFormConnected = () => {
-  const dispatch = useDispatch();
-
+const MemeForm = () => {
   const current = useSelector((s: RootState) => s.current.meme);
-  const images = useSelector((s: RootState) => s.ressources.images);
+  const imgs = useSelector((s: RootState) => s.ressources.images);
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <MemeFormU
+      images={imgs}
       meme={current}
-      images={images}
-      onMemeChange={(newCurrent) => {
-        console.log("newCurrent imageId", newCurrent.imageId);
-        dispatch(update(newCurrent));
+      onMemeChange={(meme) => {
+        dispatch(update(meme));
       }}
     />
   );
 };
 
-export default MemeFormConnected;
+export default MemeForm;
+  

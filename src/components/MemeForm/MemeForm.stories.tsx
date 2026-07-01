@@ -1,8 +1,8 @@
-import memeForm from './MemeForm';
+import MemeForm from './MemeForm';
 
 export default {
-  title: 'memeForm',
-  component: memeForm,
+  title: 'MemeForm',
+  component: MemeForm,
 };
 
 export const Default = {};
